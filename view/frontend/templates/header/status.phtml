@@ -1,0 +1,25 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var Magento\Customer\Block\Account\Customer $block */
+?>
+<?php if ($block->customerLoggedIn()): ?>
+    <li class="custom-status" data-bind="scope: 'status-section'">
+        <!-- ko if: status_section().current_customer_status  -->
+        <span data-bind="text: status_section().current_customer_status"></span>
+        <!-- /ko -->
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "status-section": {
+                            "component": "Test_Status/js/status"
+                        }
+                    }
+                }
+            }
+        }
+
+        </script>
+    </li>
+<?php endif; ?>

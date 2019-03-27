@@ -1,0 +1,34 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Test\Status\Block\Form\Edit $block */
+?>
+<form class="form form-status-edit"
+      action="<?php echo $block->escapeUrl($block->getSaveUrl()); ?>"
+      method="post"
+      id="form-validate"
+      enctype="multipart/form-data"
+      data-hasrequired="<?php echo $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+    <fieldset class="fieldset edit">
+        <?php echo $block->getBlockHtml('formkey') ?>
+        <div class="field" style="width:50%;">
+            <label class="label"><span><?php echo $block->escapeHtml(__('Status')) ?></span></label>
+            <div class="control">
+                <input type="text" name="<?php echo \Test\Status\Setup\InstallData::ATTRIBUTE_CODE; ?>"
+                       id="test-status"
+                       autocomplete="off"
+                       value="<?php echo $block->escapeHtmlAttr($block->getCustomerStatus()) ?>"
+                       title="<?php echo $block->escapeHtmlAttr(__('Status')) ?>" class="input-text"" />
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary"
+                    title="<?php echo $block->escapeHtmlAttr(__('Save')) ?>">
+                <span><?php echo $block->escapeHtml(__('Save')) ?></span>
+            </button>
+        </div>
+    </div>
+
+</form>
